@@ -3,7 +3,8 @@ class CreateTiles < ActiveRecord::Migration[5.0]
     create_table :tiles do |t|
       t.integer :user_id
       t.integer :index
-      t.string :value
+      t.boolean :ship
+      t.boolean :visited
       
       t.timestamps
     end
