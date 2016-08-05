@@ -34,13 +34,11 @@ class Game < ApplicationRecord
       tile = self.tiles.find_by_index(random_index)
       unless tile.visited
         tile.update(visited: true)
+        check_if_computer_won
+
         return
       end
     end
-
-    check_if_computer_won
-
-    nil
   end
 
   private
@@ -73,8 +71,6 @@ class Game < ApplicationRecord
       randoms << rand(max)
       return randoms.to_a if randoms.size >= n
     end
-
-    randoms
   end
 
 end
