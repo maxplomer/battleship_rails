@@ -26,15 +26,15 @@ class Game < ApplicationRecord
   end
 
   def bomb_computer(index)
-    self.tiles[index].update(visited: true)
+    self.tiles.find_by_index(index).update(visited: true)
   end
 
   def take_computer_turn
     max = 25
-    random_index = rand(max)
+    random_index = rand(max) + 25
 
     loop do
-      tile = self.tiles[random_index + 25]
+      tile = self.tiles.find_by_index(random_index)
       unless tile.visited
         tile.update(visited: true)
         return
