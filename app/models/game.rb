@@ -6,11 +6,6 @@ class Game < ApplicationRecord
     nil
   end
 
-  def game_over?
-    #if player wins assign a finished time
-    #else just leave nil and set finished to true
-  end
-
   def assign_computer_positions
     positions = Game.random_numbers
 
@@ -45,6 +40,11 @@ class Game < ApplicationRecord
   end
 
   private
+
+  def game_over?
+    #if player wins assign a finished time
+    #else just leave nil and set finished to true
+  end
 
   def Game.random_numbers
     require 'set'
