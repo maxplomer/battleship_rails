@@ -1,16 +1,15 @@
 class UsersController < ApplicationController
 
   def create
-    auth0_info = get_auth0_info
+    auth0id = get_auth0id
 
-    existing_user = User.find_by_auth0id(auth0_info[0])
+    existing_user = User.find_by_auth0id(auth0id)
 
     if !!existing_user
       render json: existing_user
     else
       user = User.new(
-        auth0id: auth0_info[0],
-        email: auth0_info[1]
+        auth0id: auth0id
       )
 
       if user.save
