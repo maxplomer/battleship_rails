@@ -22,6 +22,8 @@ class Game < ApplicationRecord
 
   def bomb_computer(index)
     self.tiles.find_by_index(index).update(visited: true)
+
+    player_won?
   end
 
   def take_computer_turn
@@ -36,14 +38,21 @@ class Game < ApplicationRecord
       end
     end
 
+    computer_won?
+
     nil
   end
 
   private
 
-  def game_over?
-    #if player wins assign a finished time
-    #else just leave nil and set finished to true
+  def player_won?
+
+  end
+
+  def computer_won?
+
+
+    nil
   end
 
   def Game.random_numbers
