@@ -46,7 +46,12 @@ class Game < ApplicationRecord
   private
 
   def player_won?
-
+    if game.tiles.where("index < ?", 25).where(visited: true, ship: true).length == 10
+      self.update(finished: true)
+      true
+    else
+      false
+    end
   end
 
   def computer_won?
