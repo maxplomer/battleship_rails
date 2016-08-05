@@ -7,12 +7,18 @@ class Game < ApplicationRecord
   end
 
   def assign_computer_positions
+    positions = Game.random_numbers
+    
+    positions.each do |i|
+      self.tiles[i].update(ship: true)
+    end
 
+    nil
   end
 
   private
 
-  def random_numbers
+  def Game.random_numbers
     require 'set'
 
     n = 10
