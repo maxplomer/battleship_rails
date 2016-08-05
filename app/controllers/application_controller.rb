@@ -6,8 +6,6 @@ class ApplicationController < ActionController::API
     @current_user ||= User.find_by_auth0id(auth0id)
   end
 
-  #private
-
   def get_auth0id
     require 'jwt'
     
