@@ -6,6 +6,11 @@ class Game < ApplicationRecord
     nil
   end
 
+  def game_over?
+    #if player wins assign a finished time
+    #else just leave nil and set finished to true
+  end
+
   def assign_computer_positions
     positions = Game.random_numbers
 
@@ -18,6 +23,25 @@ class Game < ApplicationRecord
 
   def place_ship(index)
     self.tiles[index + 25].update(ship: true)
+  end
+
+  def bomb_computer(index)
+    self.tiles[index].update(visited: true)
+  end
+
+  def take_computer_turn
+    max = 25
+    random_index = rand(max)
+
+    loop do
+      tile = self.tiles[index + 25]
+      unless tile.visited
+        tile.update(visited: true)
+        return
+      end
+    end
+
+    nil
   end
 
   private
