@@ -11,7 +11,7 @@ class ApplicationController < ActionController::API
     
     auth0_client_id = ENV['AUTH0_CLIENT_ID']
     auth0_client_secret = ENV['AUTH0_CLIENT_SECRET']
-    token = request.headers['Token']
+    token = params['token']
 
     decoded_token = JWT.decode(token, JWT.base64url_decode(auth0_client_secret))
     
