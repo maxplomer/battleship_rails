@@ -38,7 +38,7 @@ class Game < ApplicationRecord
       end
     end
 
-    computer_won?
+    check_if_computer_won
 
     nil
   end
@@ -54,8 +54,10 @@ class Game < ApplicationRecord
     end
   end
 
-  def computer_won?
-
+  def check_if_computer_won
+    if self.tiles.where("index > ?", 24).where(visited: true, ship: true).length == 10
+      self.update(finished: true, player_won: false)
+    end
 
     nil
   end

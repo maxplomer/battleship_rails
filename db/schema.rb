@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20160805054426) do
     t.integer  "user_id"
     t.time     "game_ended"
     t.boolean  "finished",   default: false
+    t.boolean  "player_won"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
