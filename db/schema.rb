@@ -25,10 +25,10 @@ ActiveRecord::Schema.define(version: 20160805054426) do
   create_table "tiles", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "index"
-    t.boolean  "ship"
-    t.boolean  "visited"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "ship",       default: false
+    t.boolean  "visited",    default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "users", force: :cascade do |t|
