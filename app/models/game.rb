@@ -15,14 +15,14 @@ class Game < ApplicationRecord
     positions = Game.random_numbers
 
     positions.each do |i|
-      self.tiles[i].update(ship: true)
+      self.tiles.find_by_index(i).update(ship: true)
     end
 
     nil
   end
 
   def place_ship(index)
-    self.tiles[index + 25].update(ship: true)
+    self.tiles.find_by_index(index).update(ship: true)
   end
 
   def bomb_computer(index)
@@ -31,9 +31,9 @@ class Game < ApplicationRecord
 
   def take_computer_turn
     max = 25
-    random_index = rand(max) + 25
 
     loop do
+      random_index = rand(max) + 25
       tile = self.tiles.find_by_index(random_index)
       unless tile.visited
         tile.update(visited: true)
