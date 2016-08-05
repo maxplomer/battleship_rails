@@ -12,10 +12,17 @@ class GamesController < ApplicationController
     render json: game, status: :created
   end
 
-  def destroy
-    id = params[:id]
+  def place_ship
+    game = current_user.games.find(params[:id])
+    p "PLACE SHIP"
+    p params
+    p "PLACE SHIP"
+    render json: {hello: 'world'}
 
-    game = current_user.games.find(id)
+  end
+
+  def destroy
+    game = current_user.games.find(params[:id])
     game.destroy
 
     render json: game
