@@ -7,6 +7,8 @@ class GamesController < ApplicationController
       game.tiles.create(index: i)
     end
 
+    game.assign_computer_positions
+
     render json: game, status: :created
   end
 
