@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20160805054426) do
 
   create_table "games", force: :cascade do |t|
     t.integer  "user_id"
-    t.time     "game_ended"
+    t.datetime "game_ended"
     t.boolean  "finished",   default: false
     t.boolean  "player_won"
     t.datetime "created_at",                 null: false
