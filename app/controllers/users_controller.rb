@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    users = User.all.select{|i| i.time_took_to_win != nil}
+    users = User.all.select { |i| i.time_took_to_win != nil }
     users.sort! { |a,b| a.time_took_to_win <=> b.time_took_to_win }
   end
 
