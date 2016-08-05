@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20160805054426) do
 
   create_table "users", force: :cascade do |t|
     t.string   "auth0id"
+    t.string   "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["auth0id"], name: "index_users_on_auth0id", unique: true, using: :btree
