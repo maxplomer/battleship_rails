@@ -1,7 +1,9 @@
 class GameSerializer < ActiveModel::Serializer
-  attributes :id, :my_tiles
+  attributes :id#, :my_tiles
 
-  def my_tiles
-    object.tiles[25..-1]
-  end
+  has_many :tiles
+
+  # def my_tiles
+  #   object.tiles[25..-1]
+  # end
 end
