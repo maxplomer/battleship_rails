@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20160805054426) do
   end
 
   create_table "tiles", force: :cascade do |t|
-    t.integer  "user_id"
+    t.integer  "game_id"
     t.integer  "index"
     t.boolean  "ship",       default: false
     t.boolean  "visited",    default: false
