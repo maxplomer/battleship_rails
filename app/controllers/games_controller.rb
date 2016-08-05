@@ -14,7 +14,7 @@ class GamesController < ApplicationController
 
   def place_ship
     game = current_user.games.find(params[:id])
-    game.place_ship(params[:index])
+    game.place_ship(params[:index].to_i)
     render json: game
   end
 
