@@ -9,7 +9,8 @@ class UsersController < ApplicationController
       render json: existing_user
     else
       user = User.new(
-        auth0id: auth0id
+        auth0id: auth0id,
+        email: params[:email]
       )
 
       if user.save
