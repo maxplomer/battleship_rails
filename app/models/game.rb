@@ -1,6 +1,6 @@
 class Game < ApplicationRecord
   belongs_to :user
-  has_many :tiles, -> { order(index: :desc) }, dependent: :destroy
+  has_many :tiles, -> { order(index: :asc) }, dependent: :destroy
 
   def time
     nil
