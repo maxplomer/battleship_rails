@@ -4,4 +4,8 @@ class PingController < ApplicationController
     render text: "Helloworld"
   end
 
+  def secured_ping
+
+  end
+
 end
