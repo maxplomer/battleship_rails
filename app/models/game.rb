@@ -22,7 +22,7 @@ class Game < ApplicationRecord
   end
 
   def place_ship(index)
-    self.tiles.find_by_index(index).update(ship: true)
+    self.tiles.find_by_index(index + 25).update(ship: true)
   end
 
   def bomb_computer(index)
