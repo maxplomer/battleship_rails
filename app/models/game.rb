@@ -8,12 +8,16 @@ class Game < ApplicationRecord
 
   def assign_computer_positions
     positions = Game.random_numbers
-    
+
     positions.each do |i|
       self.tiles[i].update(ship: true)
     end
 
     nil
+  end
+
+  def place_ship(index)
+    self.tiles[index + 25].update(ship: true)
   end
 
   private

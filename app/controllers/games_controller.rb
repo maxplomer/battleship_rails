@@ -14,11 +14,8 @@ class GamesController < ApplicationController
 
   def place_ship
     game = current_user.games.find(params[:id])
-    p "PLACE SHIP"
-    p params
-    p "PLACE SHIP"
-    render json: {hello: 'world'}
-
+    game.place_ship(params[:index])
+    render json: game
   end
 
   def destroy

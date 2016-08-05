@@ -18,8 +18,9 @@ ActiveRecord::Schema.define(version: 20160805054426) do
   create_table "games", force: :cascade do |t|
     t.integer  "user_id"
     t.time     "game_ended"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "finished",   default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "tiles", force: :cascade do |t|
