@@ -1,5 +1,5 @@
 class GameSerializer < ActiveModel::Serializer
-  attributes :id, :finished
+  attributes :id, :finished, :player_won
 
   has_many :tiles
 end

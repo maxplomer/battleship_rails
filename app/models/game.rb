@@ -3,7 +3,7 @@ class Game < ApplicationRecord
   has_many :tiles, -> { order(index: :asc) }, dependent: :destroy
 
   def time
-    nil
+    game.game_ended - game.created_at
   end
 
   def assign_computer_positions
@@ -46,8 +46,8 @@ class Game < ApplicationRecord
   private
 
   def player_won?
-    if game.tiles.where("index < ?", 25).where(visited: true, ship: true).length == 10
-      self.update(finished: true)
+    if self.tiles.where("index < ?", 25).where(visited: true, ship: true).length == 10
+      self.update(finished: true, player_won: true, game_ended: Time.now)
       true
     else
       false

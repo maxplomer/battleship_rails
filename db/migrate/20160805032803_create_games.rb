@@ -4,6 +4,7 @@ class CreateGames < ActiveRecord::Migration[5.0]
       t.integer :user_id
       t.time :game_ended
       t.boolean :finished, default: false
+      t.boolean :player_won
       t.timestamps
     end
   end
