@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def create
+  	p params
     auth0id = get_auth0id
 
     existing_user = User.find_by_auth0id(auth0id)
