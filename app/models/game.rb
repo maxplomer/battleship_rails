@@ -3,7 +3,7 @@ class Game < ApplicationRecord
   has_many :tiles, -> { order(index: :asc) }, dependent: :destroy
 
   def time
-    game.game_ended - game.created_at
+    self.game_ended - self.created_at
   end
 
   def assign_computer_positions
