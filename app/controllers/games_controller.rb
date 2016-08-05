@@ -18,6 +18,15 @@ class GamesController < ApplicationController
     render json: game
   end
 
+  def bomb_computer
+    game = current_user.games.find(params[:id])
+    game.bomb_computer(params[:index].to_i)
+    game.take_computer_turn
+    #check if game over in these methods?
+    #send up an attribute in game if over or not, already have finished
+    render json: game
+  end
+
   def destroy
     game = current_user.games.find(params[:id])
     game.destroy
