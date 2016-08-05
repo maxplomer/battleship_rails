@@ -34,7 +34,7 @@ class Game < ApplicationRecord
     random_index = rand(max)
 
     loop do
-      tile = self.tiles[index + 25]
+      tile = self.tiles[random_index + 25]
       unless tile.visited
         tile.update(visited: true)
         return
