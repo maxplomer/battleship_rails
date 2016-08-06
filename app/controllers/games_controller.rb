@@ -20,12 +20,10 @@ class GamesController < ApplicationController
 
   def bomb_computer
     game = current_user.games.find(params[:id])
+
     game_over = game.bomb_computer(params[:index].to_i)
-    unless game_over
-      game.take_computer_turn
-    end
-    #check if game over in these methods?
-    #send up an attribute in game if over or not, already have finished
+    game.take_computer_turn unless game_over
+
     render json: game
   end
 
