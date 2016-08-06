@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-
+  serialization_scope nil
+  
   def create
     auth0id = get_auth0id
 
@@ -25,6 +26,8 @@ class UsersController < ApplicationController
   def index
     users = User.all.select { |i| i.time_took_to_win != nil }
     users.sort! { |a,b| a.time_took_to_win <=> b.time_took_to_win }
+
+    render json: users
   end
 
 end
