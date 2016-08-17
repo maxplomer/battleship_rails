@@ -1,5 +1,9 @@
-# Javascript Test
-## Challenge Details:
+#Readme
+
+This is the Ruby on Rails backend for a web based implementation of battleship.
+
+[Link to frontend React repo](https://github.com/maxplomer/battleship_react)
+
 ### A Simplified Game of Battleship
 ### YOUR MISSION (Should you choose to accept it)
 
